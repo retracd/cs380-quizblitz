@@ -5,3 +5,7 @@ WHAT I USED / CHANGED: Kept the structure exactly as requested; will use this ar
 PROMPT: "Write a Vue 3 single-file component called StartScreen. It should display a heading that says 'QuizBlitz', a short tagline, and a button labelled 'Play'. When the button is clicked, it emits an event called 'start'. Use the Options API (not Composition API). No props needed."
 RESPONSE: Created StartScreen.vue with a "Play" button using this.$emit('start').
 WHAT I USED / CHANGED: Kept it as-is; added basic scoped styling for visibility.
+
+PROMPT: "Write a Vue 3 single-file component called ScoreBoard. It receives a prop called score (Number). It displays a heading 'Game Over', the player's score out of 10, and a 'Play Again' button. When Play Again is clicked, it emits 'restart'. Use the Options API."
+RESPONSE: Created ScoreBoard.vue with a score prop and "restart" emission.
+WHAT I USED / CHANGED: Added required: true to the score prop for better practice.

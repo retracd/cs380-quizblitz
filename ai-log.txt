@@ -27,3 +27,15 @@ PROMPT: "I have a Vue 3 quiz game using the Options API. Write a PlayView.vue th
 RESPONSE: Created PlayView.vue with full game logic and mounted() lifecycle hook.
 WHAT I USED / CHANGED: Re-integrated the 10 questions and added the question counter from the previous stretch goal.
 
+PROMPT: "The app looks too default. I need to fix the font loading (it's still serif), change button outlines from white to black, and make the welcome page look less lame. Suggest a modern tech/gaming theme using Google Fonts like Inter and Orbitron."
+RESPONSE: Provided updated global CSS with custom properties, font imports, and a refined "hero" layout for HomeView. 
+WHAT I USED / CHANGED: Used Inter for body and Orbitron for titles/counter. Changed button borders to 2px solid black with a retro offset shadow.
+
+PROMPT: "Fix HomeView layout (content missing), center QuestionCard and counter in PlayView, and implement the Milestone 8 Navigation Guard using sessionStorage."
+RESPONSE: Provided updated scoped styles for HomeView and PlayView to ensure centering and font inheritance. Added router.beforeEach guard to index.js.
+WHAT I USED / CHANGED: Used flex-direction: column and align-items: center on the quiz-container. Added !important to the Orbitron font-family to override defaults.
+
+PROMPT: "The PlayView is still wonky. The question text is not centered even if the div is, and the question counter is appearing to the side instead of below the questions. Fix the flex alignment and text centering."
+RESPONSE: Provided updated flex-direction stack for PlayView and added text-align: center to the QuestionCard H3 and counter.
+WHAT I USED / CHANGED: Added a .game-stack wrapper to ensure the card and counter always stay in a vertical column, and centered all nested text.
+

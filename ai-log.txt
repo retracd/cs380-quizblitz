@@ -9,3 +9,7 @@ WHAT I USED / CHANGED: Kept it as-is; added basic scoped styling for visibility.
 PROMPT: "Write a Vue 3 single-file component called ScoreBoard. It receives a prop called score (Number). It displays a heading 'Game Over', the player's score out of 10, and a 'Play Again' button. When Play Again is clicked, it emits 'restart'. Use the Options API."
 RESPONSE: Created ScoreBoard.vue with a score prop and "restart" emission.
 WHAT I USED / CHANGED: Added required: true to the score prop for better practice.
+
+PROMPT: "I'm building a Vue 3 quiz game using Vite and the Options API. Write a single-file component called QuestionCard. It receives one prop called `question` shaped like `{ question: String, answers: Array, correct: Number }`. The template should display the question text and render four answer buttons using v-for. When a button is clicked: disable all buttons immediately, apply a green CSS class to the correct answer button and a red class to the clicked button if it was wrong, wait 1 second using setTimeout, then emit an event called 'answer' with the value true if the answer was correct or false if it was wrong. Reset the highlight state after emitting. Do not use TypeScript."
+RESPONSE: Provided QuestionCard.vue with logic for hasAnswered and selectedIndex to control CSS classes and button disabling. Used setTimeout(..., 1000) for the delay.
+WHAT I USED / CHANGED: Kept the logic exactly as requested; added CSS classes for .correct and .wrong to make the feedback visible.

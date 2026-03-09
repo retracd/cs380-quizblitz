@@ -39,3 +39,7 @@ PROMPT: "The PlayView is still wonky. The question text is not centered even if 
 RESPONSE: Provided updated flex-direction stack for PlayView and added text-align: center to the QuestionCard H3 and counter.
 WHAT I USED / CHANGED: Added a .game-stack wrapper to ensure the card and counter always stay in a vertical column, and centered all nested text.
 
+PROMPT: "Add a navigation bar to App.vue using <RouterLink> for Home and Leaderboard. Also, provide a modern dark-theme CSS style for the nav bar, ensuring the active link is highlighted using the .router-link-active class."
+RESPONSE: Provided the template structure for a persistent <nav> and scoped CSS that uses the --accent color for the active route.
+WHAT I USED / CHANGED: Integrated the Nav Bar into App.vue above the <RouterView />. Applied a custom 'logo' style to the Home link and used flexbox to space out the links.
+

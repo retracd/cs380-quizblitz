@@ -43,3 +43,7 @@ PROMPT: "Add a navigation bar to App.vue using <RouterLink> for Home and Leaderb
 RESPONSE: Provided the template structure for a persistent <nav> and scoped CSS that uses the --accent color for the active route.
 WHAT I USED / CHANGED: Integrated the Nav Bar into App.vue above the <RouterView />. Applied a custom 'logo' style to the Home link and used flexbox to space out the links.
 
+PROMPT: "Fix HomeView layout (content missing), center QuestionCard and counter in PlayView, and implement the Milestone 8 Navigation Guard using sessionStorage."
+RESPONSE: Provided updated scoped styles for HomeView and PlayView to ensure centering and font inheritance. Added router.beforeEach guard to index.js.
+WHAT I USED / CHANGED: Used flex-direction: column and align-items: center on the quiz-container. Added !important to the Orbitron font-family to override defaults.
+

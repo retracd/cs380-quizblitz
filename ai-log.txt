@@ -2,3 +2,6 @@ PROMPT: Generate a list of 10 random tech-themed quiz questions formatted as an 
 RESPONSE: A list of 10 questions covering CSS, JavaScript, Vite, HTML, Vue, and Git.
 WHAT I USED / CHANGED: Kept the structure exactly as requested; will use this array in Milestone 4.
 
+PROMPT: "Write a Vue 3 single-file component called StartScreen. It should display a heading that says 'QuizBlitz', a short tagline, and a button labelled 'Play'. When the button is clicked, it emits an event called 'start'. Use the Options API (not Composition API). No props needed."
+RESPONSE: Created StartScreen.vue with a "Play" button using this.$emit('start').
+WHAT I USED / CHANGED: Kept it as-is; added basic scoped styling for visibility.

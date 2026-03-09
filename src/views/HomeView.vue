@@ -16,7 +16,6 @@ export default {
   components: { StartScreen },
   methods: {
     startGame() {
-      // Set the flag for the guard (Milestone 8)
       sessionStorage.setItem('gameStarted', 'true');
       this.$router.push({ name: 'play' });
     }

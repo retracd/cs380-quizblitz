@@ -1,18 +1,24 @@
 <template>
   <div class="play-view">
-    <QuestionCard
-      v-if="gameState === 'playing'"
-      :question="questions[currentIndex]"
-      @answer="handleAnswer"
-    />
-    <ScoreBoard
-      v-else-if="gameState === 'end'"
-      :score="score"
-      @restart="returnHome"
-    />
-    <p v-if="gameState === 'playing'" class="counter">
-      Question {{ currentIndex + 1 }} of {{ questions.length }}
-    </p>
+    <div class="quiz-container">
+      <div class="game-stack">
+        <QuestionCard
+          v-if="gameState === 'playing'"
+          :question="questions[currentIndex]"
+          @answer="handleAnswer"
+        />
+        
+        <p v-if="gameState === 'playing'" class="counter">
+          — Question {{ currentIndex + 1 }} of {{ questions.length }} —
+        </p>
+      </div>
+
+      <!-- <ScoreBoard
+        v-else-if="gameState === 'end'"
+        :score="score"
+        @restart="returnHome"
+      /> -->
+    </div>
   </div>
 </template>
 
@@ -65,3 +71,36 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.play-view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  width: 100%;
+}
+
+.quiz-container {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.counter {
+  margin-top: 30px;
+  width: 100%;
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  color: var(--accent);
+}
+</style>

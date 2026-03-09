@@ -12,65 +12,51 @@ export default {
 
 <style>
 :root {
-  --bg-color: #1a1a2e;
-  --card-bg: #16213e;
-  --text-color: #e0e0e0;
-  --accent-color: #f5c518;
-  --button-hover: #e0b415;
+  --bg-dark: #0f0c29;
+  --card-bg: #1b1b2f;
+  --accent: #f5c518; 
+  --text: #ffffff;
+  --text-muted: #94a3b8;
 }
 
 body {
   margin: 0;
-  padding: 0;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#app {
-  display: flex;
-  flex-direction: column;
+  background: radial-gradient(circle at top, #1b1b2f 0%, #0f0c29 100%);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
   min-height: 100vh;
-  text-align: center;
 }
 
-.home,
-.play-view,
-.leaderboard {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 2rem;
-  background: var(--card-bg);
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+.counter {
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
+  color: var(--accent);
+  font-size: 0.9rem;
+  margin-top: 2rem;
 }
 
-h1,
-h2,
-h3 {
-  color: var(--accent-color);
-}
-
+/* Modernized Button Base */
 button {
-  background-color: var(--accent-color);
-  color: #1a1a2e;
-  border: none;
-  border-radius: 6px;
-  padding: 12px 24px;
-  font-weight: bold;
-  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: var(--accent);
+  color: #000 !important;
+  border: 2px solid #000 !important;
+  border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.1s, background-color 0.2s;
+  transition: all 0.2s ease;
+  box-shadow: 4px 4px 0px #000;
 }
 
-button:hover {
-  background-color: var(--button-hover);
-  transform: translateY(-2px);
+button:hover:not(:disabled) {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #000;
 }
 
-button:active {
-  transform: translateY(0);
+button:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px #000;
 }
 </style>

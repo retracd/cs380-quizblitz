@@ -1,0 +1,4 @@
+PROMPT: Generate a list of 10 random tech-themed quiz questions formatted as an array of objects. Each object must have: question (String), answers (Array of 4 strings), and correct (Number representing the index of the correct answer).
+RESPONSE: A list of 10 questions covering CSS, JavaScript, Vite, HTML, Vue, and Git.
+WHAT I USED / CHANGED: Kept the structure exactly as requested; will use this array in Milestone 4.
+

@@ -15,3 +15,7 @@ RESPONSE: Provided QuestionCard.vue with logic for hasAnswered and selectedIndex
 WHAT I USED / CHANGED: Kept the logic exactly as requested; added CSS classes for .correct and .wrong to make the feedback visible.
 WHAT I USED / CHANGED: Verified QuestionCard by importing it into App.vue and passing a hardcoded question. Confirmed that classes apply correctly and the 1-second timeout triggers the @answer event.
 
+PROMPT: No AI used for wiring App.vue (followed Milestone 4 logic provided in instructions).
+RESPONSE: N/A
+WHAT I USED / CHANGED: Implemented startGame, handleAnswer, and resetGame methods. Used v-if/v-else-if/v-else to toggle between StartScreen, QuestionCard, and ScoreBoard. Added a question counter as a stretch goal.
+

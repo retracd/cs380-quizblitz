@@ -47,3 +47,7 @@ PROMPT: "Fix HomeView layout (content missing), center QuestionCard and counter 
 RESPONSE: Provided updated scoped styles for HomeView and PlayView to ensure centering and font inheritance. Added router.beforeEach guard to index.js.
 WHAT I USED / CHANGED: Used flex-direction: column and align-items: center on the quiz-container. Added !important to the Orbitron font-family to override defaults.
 
+PROMPT: "Install Pinia and create a gameStore.js. The store needs state for questions, score, and currentIndex. Add actions for startGame, submitAnswer, and a 15-second timer tick function. Ensure the timer clears before starting a new one."
+RESPONSE: Provided main.js registration code and a complete gameStore.js with internal timer logic and state-management actions.
+WHAT I USED / CHANGED: Used the exact structure from Phase 2 instructions. Added a _stopTimer call inside startGame to prevent duplicate intervals.
+

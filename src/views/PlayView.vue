@@ -1,23 +1,24 @@
 <template>
   <div class="play-view">
     <div class="quiz-container">
-      <div class="game-stack">
+      
+      <div v-if="gameState === 'playing'" class="game-stack">
         <QuestionCard
-          v-if="gameState === 'playing'"
           :question="questions[currentIndex]"
           @answer="handleAnswer"
         />
-        
-        <p v-if="gameState === 'playing'" class="counter">
+        <p class="counter">
           — Question {{ currentIndex + 1 }} of {{ questions.length }} —
         </p>
       </div>
 
-      <!-- <ScoreBoard
-        v-else-if="gameState === 'end'"
-        :score="score"
-        @restart="returnHome"
-      /> -->
+      <div v-else class="game-stack">
+        <ScoreBoard
+          :score="score"
+          @restart="returnHome"
+        />
+      </div>
+
     </div>
   </div>
 </template>

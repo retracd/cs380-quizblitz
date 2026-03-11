@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { useGameStore } from '../stores/gameStore.js'
 import HomeView from '../views/HomeView.vue'
 import PlayView from '../views/PlayView.vue'
 import LeaderboardView from '../views/LeaderboardView.vue'

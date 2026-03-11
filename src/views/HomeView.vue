@@ -9,16 +9,20 @@
 </template>
 
 <script>
+import StartScreen from '../components/StartScreen.vue'
 import { useGameStore } from '../stores/gameStore.js'
 
 export default {
   name: 'HomeView',
+  components: {
+    StartScreen
+  },
   setup() {
     return { store: useGameStore() }
   },
   methods: {
     startGame() {
-      this.store.startGame(); // Initialize store state
+      this.store.startGame();
       this.$router.push({ name: 'play' });
     }
   }

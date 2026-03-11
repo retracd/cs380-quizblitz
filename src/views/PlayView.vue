@@ -1,72 +1,57 @@
 <template>
   <div class="play-view">
     <div class="quiz-container">
-      
-      <div v-if="gameState === 'playing'" class="game-stack">
+      <div class="timer-bar">
+        <div
+          class="timer-fill"
+          :style="{ width: timerPercent + '%' }"
+          :class="{ urgent: store.timeLeft <= 5 }"
+        ></div>
+      </div>
+
+      <p class="progress">
+        Question {{ store.progress.current }} of {{ store.progress.total }}
+      </p>
+
+      <div class="game-stack">
         <QuestionCard
-          :question="questions[currentIndex]"
-          @answer="handleAnswer"
+          v-if="store.gameState === 'playing' && store.currentQuestion"
+          :question="store.currentQuestion"
+          :selectedAnswer="store.selectedAnswer"
+          @answer="store.submitAnswer"
         />
-        <p class="counter">
-          — Question {{ currentIndex + 1 }} of {{ questions.length }} —
-        </p>
-      </div>
 
-      <div v-else class="game-stack">
         <ScoreBoard
-          :score="score"
-          @restart="returnHome"
+          v-else-if="store.gameState === 'end'"
+          :score="store.score"
+          :total="store.questions.length"
+          @restart="handleRestart"
         />
       </div>
-
     </div>
   </div>
 </template>
 
 <script>
+import { useGameStore } from '../stores/gameStore.js'
 import QuestionCard from '../components/QuestionCard.vue'
 import ScoreBoard from '../components/ScoreBoard.vue'
 
 export default {
   name: 'PlayView',
   components: { QuestionCard, ScoreBoard },
-  data() {
-    return {
-      questions: [
-        { question: "What does CSS stand for?", answers: ["Cascading Style Sheets", "Creative Style System", "Computer Style Syntax", "Coloured Screen Sheets"], correct: 0 },
-        { question: "Which language is primarily used for client-side scripting?", answers: ["Python", "Java", "JavaScript", "C++"], correct: 2 },
-        { question: "What does the 'V' in Vite stand for in French?", answers: ["Very", "Quick", "Victory", "View"], correct: 1 },
-        { question: "Which HTML tag is used to define an internal style sheet?", answers: ["<css>", "<script>", "<style>", "<design>"], correct: 2 },
-        { question: "Who created the Vue.js framework?", answers: ["Evan You", "Mark Zuckerberg", "Brendan Eich", "Linus Torvalds"], correct: 0 },
-        { question: "What is the default port for a Vite development server?", answers: ["3000", "8080", "5173", "5000"], correct: 2 },
-        { question: "In CSS, which property is used to change background color?", answers: ["color", "bgcolor", "background-color", "canvas-color"], correct: 2 },
-        { question: "Which of these is NOT a Vue.js lifecycle hook?", answers: ["mounted", "created", "rendered", "updated"], correct: 2 },
-        { question: "What does 'API' stand for?", answers: ["Applied Process Integration", "Application Programming Interface", "Automated Program Index", "Advanced Peripheral Interaction"], correct: 1 },
-        { question: "Which command is used to initialize a new Git repository?", answers: ["git start", "git new", "git init", "git create"], correct: 2 }
-      ],
-      currentIndex: 0,
-      score: 0,
-      gameState: 'playing'
+  setup() {
+    const store = useGameStore(); // available as this.store
+    return { store };
+  },
+  computed: {
+    timerPercent() {
+      return (this.store.timeLeft / 15) * 100;
     }
   },
-  mounted() {
-    this.startGame();
-  },
   methods: {
-    startGame() {
-      this.currentIndex = 0;
-      this.score = 0;
-      this.gameState = 'playing';
-    },
-    handleAnswer(isCorrect) {
-      if (isCorrect) this.score++;
-      this.currentIndex++;
-      
-      if (this.currentIndex >= this.questions.length) {
-        this.gameState = 'end';
-      }
-    },
-    returnHome() {
+    handleRestart() {
+      this.store.resetGame();
       this.$router.push({ name: 'home' });
     }
   }
@@ -74,6 +59,28 @@ export default {
 </script>
 
 <style scoped>
+/* Timer Bar Styles */
+.timer-bar {
+  width: 100%;
+  height: 12px;
+  background: #000;
+  border: 2px solid var(--accent);
+  border-radius: 6px;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+.timer-fill {
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.9s linear;
+}
+.timer-fill.urgent {
+  background: #ff4444;
+  box-shadow: 0 0 10px #ff4444;
+}
+</style>
+
+<!-- <style scoped>
 .play-view {
   display: flex;
   justify-content: center;
@@ -104,4 +111,4 @@ export default {
   font-family: 'Orbitron', sans-serif;
   color: var(--accent);
 }
-</style>
+</style> -->

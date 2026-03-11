@@ -78,6 +78,15 @@ export default {
   background: #ff4444;
   box-shadow: 0 0 10px #ff4444;
 }
+.game-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.progress, .counter {
+  padding: 0 20px;
+}
 </style>
 
 <!-- <style scoped>

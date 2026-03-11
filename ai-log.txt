@@ -55,3 +55,7 @@ PROMPT: "Refactor QuestionCard to emit index, migrate PlayView to use gameStore 
 RESPONSE: Provided complete refactored components. Migrated all boolean logic to the store and implemented the visual timer bar with a 0.9s linear transition.
 WHAT I USED / CHANGED: Used the exact code provided in the Phase 2 cont. MD. Added !important to Orbitron font calls to ensure global styles were overridden.
 
+PROMPT: "The 'Game Over' screen (ScoreBoard) is not centered like the rest of the views in PlayView.vue. Fix the alignment so it matches the QuestionCard."
+RESPONSE: Wrapped the ScoreBoard in the same .game-stack flex container and added :deep() CSS selectors to force centering on the ScoreBoard component.
+WHAT I USED / CHANGED: Used flex-direction: column and align-items: center on the shared game container in PlayView.
+

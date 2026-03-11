@@ -1,13 +1,12 @@
 <template>
   <div class="question-card">
-    <h3>{{ question.question }}</h3>
-    
+    <h3 class="question-text">{{ question.question }}</h3>
     <div class="answers">
-      <button 
-        v-for="(answer, index) in question.answers" 
+      <button
+        v-for="(answer, index) in question.answers"
         :key="index"
-        :disabled="hasAnswered"
-        :class="getButtonClass(index)"
+        :class="buttonClass(index)"
+        :disabled="selectedAnswer !== null"
         @click="selectAnswer(index)"
       >
         {{ answer }}
@@ -23,41 +22,21 @@ export default {
     question: {
       type: Object,
       required: true
-    }
-  },
-  data() {
-    return {
-      hasAnswered: false,
-      selectedIndex: null
+    },
+    selectedAnswer: {
+      type: Number,
+      default: null
     }
   },
   methods: {
     selectAnswer(index) {
-      this.hasAnswered = true;
-      this.selectedIndex = index;
-
-      const isCorrect = index === this.question.correct;
-
-      // Wait 1 second before notifying the parent
-      setTimeout(() => {
-        this.$emit('answer', isCorrect);
-        
-        // Reset state for the next question
-        this.hasAnswered = false;
-        this.selectedIndex = null;
-      }, 1000);
+      if (this.selectedAnswer !== null) return;
+      this.$emit('answer', index); // Emit index, not boolean
     },
-    getButtonClass(index) {
-      if (!this.hasAnswered) return '';
-      
-      // Highlight correct answer green
+    buttonClass(index) {
+      if (this.selectedAnswer === null) return '';
       if (index === this.question.correct) return 'correct';
-      
-      // Highlight selected wrong answer red
-      if (index === this.selectedIndex && index !== this.question.correct) {
-        return 'wrong';
-      }
-      
+      if (index === this.selectedAnswer) return 'wrong';
       return '';
     }
   }

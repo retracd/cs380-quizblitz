@@ -14,10 +14,12 @@ const router = createRouter({
   routes
 })
 
-router.beforeEach((to, from) => {
-  // If the user tries to go to 'play' without the 'gameStarted' flag, send them 'home'
-  if (to.name === 'play' && sessionStorage.getItem('gameStarted') !== 'true') {
-    return { name: 'home' }
+router.beforeEach((to) => {
+  if (to.name === 'play') {
+    const store = useGameStore()
+    if (store.gameState !== 'playing') {
+      return { name: 'home' } // Block direct access
+    }
   }
 })
 

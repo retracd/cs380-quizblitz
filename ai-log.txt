@@ -51,3 +51,7 @@ PROMPT: "Install Pinia and create a gameStore.js. The store needs state for ques
 RESPONSE: Provided main.js registration code and a complete gameStore.js with internal timer logic and state-management actions.
 WHAT I USED / CHANGED: Used the exact structure from Phase 2 instructions. Added a _stopTimer call inside startGame to prevent duplicate intervals.
 
+PROMPT: "Refactor QuestionCard to emit index, migrate PlayView to use gameStore via setup(), and update HomeView to call store.startGame(). Also, add the CSS-based timer bar and update the router guard to check store.gameState."
+RESPONSE: Provided complete refactored components. Migrated all boolean logic to the store and implemented the visual timer bar with a 0.9s linear transition.
+WHAT I USED / CHANGED: Used the exact code provided in the Phase 2 cont. MD. Added !important to Orbitron font calls to ensure global styles were overridden.
+

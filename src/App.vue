@@ -111,4 +111,8 @@ nav a.router-link-active {
   color: var(--accent-color);
   border-bottom: 2px solid var(--accent-color);
 }
+
+*, *::before, *::after {
+  box-sizing: border-box; /* Overflow fix */
+}
 </style>
